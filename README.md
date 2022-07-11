@@ -1,4 +1,4 @@
-# Dia landing page
+# Air landing page
 
 Layout created with [Figma](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)).
 
