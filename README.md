@@ -10,5 +10,5 @@ Layout created with [Figma](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Ai
 - i18next
 - react-router-dom
 
-##Check layout:
+## Check layout:
 [Demo link](https://xapg6acc.github.io/home/).
