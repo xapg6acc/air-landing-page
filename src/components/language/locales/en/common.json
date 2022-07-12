@@ -104,9 +104,25 @@
       "visit": "Visit us",
       "address": "2905 West Drive, Buffalo Grove",
       "socials": "Our socials",
-      "emailField": "Your e-mail",
-      "nameField": "Your name",
-      "messageField": "Your message"
+      "alertColor": "#FF5C5C",
+      "emailInput": {
+        "id": "email",
+        "fieldType": "email",
+        "placeholder": "Your e-mail",
+        "alertMessage": "Please enter data. E-mail field is required"
+      },
+      "nameInput": {
+        "id": "name",
+        "fieldType": "text",
+        "placeholder": "Your name",
+        "alertMessage": "Please enter data. Name field is required"
+      },
+      "messageInput": {
+        "id": "message",
+        "fieldType": "text",
+        "placeholder": "Your message",
+        "alertMessage": "Please enter data. Message field is required"
+      }
     }
   }
 }

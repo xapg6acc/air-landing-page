@@ -10,17 +10,30 @@ import shapes1 from '../../images/Shapes.png';
 
 export const ContactUs = () => {
   const { t } = useTranslation('common');
-  const ariaLabel = { 'aria-label': 'description' };
   const { palette } = useTheme();
 
+  const ariaLabel = { 'aria-label': 'description' };
+  const customStyles = { fontSize: 15, width: 460, py: 3 };
+  const alertColor = t('landings.contactUsForm.alertColor');
+  const alertCustomStyles = { color: alertColor, fontSize: 14 };
+
+  const [isEmail, setIsEmail] = useState(false);
+  const [isName, setIsName] = useState(false);
+  const [isMessage, setIsMessage] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
-  console.log(email, name, message);
-  
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!email || !name || !message) {
+      setIsEmail(!email);
+      setIsName(!name);
+      setIsMessage(!message);
+
+      return;
+    }
 
     setEmail('')
     setName('');
@@ -29,13 +42,48 @@ export const ContactUs = () => {
 
   const onEmailHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
+    setIsEmail(false);
   };
+
   const onNameHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
+    setIsName(false);
   };
+
   const onMessageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
+    setIsMessage(false);
   };
+
+  const formInputs = [
+    {
+      id: t('landings.contactUsForm.nameInput.id'),
+      fieldPlaceholder: t('landings.contactUsForm.emailInput.placeholder'),
+      fieldType: t('landings.contactUsForm.emailInput.fieldType'),
+      alertMessage: t('landings.contactUsForm.emailInput.alertMessage'),
+      alertStatus: isEmail,
+      event: onEmailHandler,
+      currentValue: email
+    },
+    {
+      id: t('landings.contactUsForm.nameInput.id'),
+      fieldPlaceholder: t('landings.contactUsForm.nameInput.placeholder'),
+      fieldType: t('landings.contactUsForm.nameInput.fieldType'),
+      alertMessage: t('landings.contactUsForm.nameInput.alertMessage'),
+      alertStatus: isName,
+      event: onNameHandler,
+      currentValue: name
+    },
+    {
+      id: t('landings.contactUsForm.nameInput.id'),
+      fieldPlaceholder: t('landings.contactUsForm.messageInput.placeholder'),
+      fieldType: t('landings.contactUsForm.messageInput.fieldType'),
+      alertMessage: t('landings.contactUsForm.messageInput.alertMessage'),
+      alertStatus: isMessage,
+      event: onMessageHandler,
+      currentValue: message
+    }
+  ];
 
   return (
     <>
@@ -74,27 +122,23 @@ export const ContactUs = () => {
                   </Typography>
                 </Box>
                 <form onSubmit={submitHandler}>
-                  <Input
-                    id="email"
-                    placeholder={t('landings.contactUsForm.emailField')}
-                    inputProps={ariaLabel}
-                    sx={{ fontSize: 15, width: 460, py: 3 }}
-                    onChange={onEmailHandler}
-                  />
-                  <Input
-                    id="name"
-                    placeholder={t('landings.contactUsForm.nameField')}
-                    inputProps={ariaLabel}
-                    sx={{ fontSize: 15, width: 460, py: 3 }}
-                    onChange={onNameHandler}
-                  />
-                  <Input
-                    id="message"
-                    placeholder={t('landings.contactUsForm.messageField')}
-                    inputProps={ariaLabel}
-                    sx={{ fontSize: 15, width: 460, py: 3 }}
-                    onChange={onMessageHandler}
-                  />
+                  {formInputs.map(item => (
+                      <>
+                        <Input
+                          key={item.id}
+                          id={item.id}
+                          type={item.fieldType}
+                          placeholder={item.fieldPlaceholder}
+                          inputProps={ariaLabel}
+                          sx={customStyles}
+                          value={item.currentValue}
+                          onChange={item.event}
+                        />
+                        {item.alertStatus && (
+                          <Box sx={alertCustomStyles}>{item.alertMessage}</Box>
+                        )}
+                      </>
+                    ))}
                   <Box sx={{ pt: 8 }}>
                     <Button variant="contained" type="submit">
                       <Typography variant="subtitle2" sx={{ color: palette.common.white }}>
