@@ -27,8 +27,7 @@ export const Root = () => {
               <Route exact path="/testimonials" component={Testimonials} />
               <Route exact path="/about-us" component={AboutUs} />
               <Route exact path="/services" component={Services} />
-              <Route exact path="/home" component={App} />
-              <Route path="/" component={App} />
+              <Route exact path="/" component={App} />
               <Redirect to="/home" />
             </Switch>
           </Layout>
