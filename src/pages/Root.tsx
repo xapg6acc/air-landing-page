@@ -27,8 +27,8 @@ export const Root = () => {
               <Route exact path="/testimonials" component={Testimonials} />
               <Route exact path="/about-us" component={AboutUs} />
               <Route exact path="/services" component={Services} />
-              <Route path="/home" component={App} />
-              <Redirect to="/" />
+              <Route exact path="/" component={App} />
+              <Redirect to="/home" />
             </Switch>
           </Layout>
         {/* </ThemeProvider> */}
