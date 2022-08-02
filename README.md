@@ -11,4 +11,4 @@ Layout created with [Figma](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Ai
 - react-router-dom
 
 ## Check layout:
-[Demo link](https://xapg6acc.github.io/home/).
+[Demo link](https://xapg6acc.github.io/air-landing-page/).
