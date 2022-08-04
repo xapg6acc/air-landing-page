@@ -104,9 +104,18 @@
       "visit": "Завітайте до нас",
       "address": "2905 West Drive, Buffalo Grove",
       "socials": "Наші соціальні мережі",
-      "emailField": "Ваша електронна пошта",
-      "nameField": "Ваше ім'я",
-      "messageField": "Ваше повідомлення"
+      "emailInput": {
+        "placeholder": "Ваша електронна адреса",
+        "alertMessage": "Будь ласка, введіть дані. Поле електронної пошти є обов'язковим"
+      },
+      "nameInput": {
+        "placeholder": "Ваше ім'я",
+        "alertMessage": "Будь ласка, введіть дані. Поле імені є обов'язковим"
+      },
+      "messageInput": {
+        "placeholder": "Ваше повідомлення",
+        "alertMessage": "Будь ласка, введіть дані. Поле повідомлення є обов'язковим"
+      }
     }
   }
 }

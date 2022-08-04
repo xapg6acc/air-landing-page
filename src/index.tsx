@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import './components/language/i18n';
 
@@ -9,9 +9,9 @@ import { Root } from './pages/Root';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
+    <HashRouter>
       <Root />
-    </BrowserRouter>
+    </HashRouter>
   </ThemeProvider>,
   document.getElementById('root'),
 );
